@@ -1,0 +1,32 @@
+<!-- AQUI VIENEN LAS ORDENES/PEDIDOS -->
+<div class="max-w-4xl mx-auto mt-6 bg-green-100 p-6 rounded-lg shadow-lg border-4 border-green-600">  
+  <div class="overflow-x-auto mb-4">
+    <table class="min-w-full table-auto border-collapse bg-white border border-gray-300 rounded-lg shadow-md">
+      <thead class="bg-green-200">
+        <tr>
+          <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-green-700">♛</th>
+          <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-green-700">Tamaño</th>
+          <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-green-700">Ingredientes</th>
+          <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-green-700">Num.Pizzas</th>
+          <th class="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-green-700">SubTotal</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="pedidoServicio.ordenes">
+        <tr *ngFor="let orden of pedidoServicio.ordenes; let i = index" class="hover:bg-green-50">
+          <td class="border border-gray-300 px-4 py-2 text-center">
+            <input type="checkbox" [(ngModel)]="orden.selected" class="form-checkbox text-green-600 focus:ring-green-500" />
+          </td>
+          <td class="border border-gray-300 px-4 py-2 text-left text-sm">{{ orden.tamanio }}</td>
+          <td class="border border-gray-300 px-4 py-2 text-left text-sm">{{ orden.ingredientes }}</td>
+          <td class="border border-gray-300 px-4 py-2 text-left text-sm">{{ orden.cantidad }}</td>
+          <td class="border border-gray-300 px-4 py-2 text-left text-sm">${{ orden.subtotal }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex justify-between">
+    <button class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors" (click)="guardarP()">Terminar</button>
+    <button *ngIf="hayPedidosSeleccionados()" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-800 transition-colors ml-4" (click)="quitarPedidosSeleccionados()">Quitar Seleccionados</button>
+  </div>
+</div>

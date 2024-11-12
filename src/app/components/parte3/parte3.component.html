@@ -1,0 +1,32 @@
+<div class="max-w-4xl mx-auto mt-6 bg-green-700 p-6 rounded-lg shadow-lg border-4 border-green-800">
+  <!-- Título de la card -->
+  <p class="font-bold text-xl text-white text-center">Ventas del día</p>
+  
+  <!-- Tabla de ventas -->
+  <div class="overflow-x-auto mt-6">
+    <table class="min-w-full table-auto border-collapse bg-white border border-gray-300 rounded-lg shadow-md">
+      <thead class="bg-green-800">
+        <tr>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-white">Nombre</th>
+          <th class="px-4 py-2 text-left text-sm font-semibold text-white">Pagado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nombre of ventasPorNombre | keyvalue" class="hover:bg-green-100">
+          <td class="border px-4 py-2 text-left text-sm">{{ nombre.key }}</td>
+          <td class="border px-4 py-2 text-left text-sm">{{ nombre.value | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Total de ventas -->
+  <div class="mt-6 font-bold text-lg text-white">
+    <p>Total de ventas del día: {{ totalVentas | currency }}</p>
+  </div>
+
+  <!-- Botón para ver ventas totales -->
+  <div class="mt-4 flex justify-center">
+    <button class="bg-green-400 text-white px-6 py-2 rounded-lg hover:bg-green-900 transition-colors" (click)="funcionVentas()">Ventas totales por día</button>
+  </div>
+</div>

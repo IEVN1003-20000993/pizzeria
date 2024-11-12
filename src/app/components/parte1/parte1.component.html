@@ -1,0 +1,69 @@
+<!-- FORMULARIO PARA PEDIR PIZZAS -->
+<div class="p-6 bg-yellow-100 border-4 border-yellow-600 rounded-lg">
+
+    <form (ngSubmit)="guardarPizza()" [formGroup]="formGroup" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="mb-4">
+        <label for="nombre" class="block text-lg font-semibold text-brown-600">Nombre:</label>
+        <input id="nombre" type="text" formControlName="nombre" class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+      </div>
+
+      <div class="mb-4">
+        <label for="direcc" class="block text-lg font-semibold text-brown-600">Dirección:</label>
+        <input id="direcc" type="text" formControlName="direcc" class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+      </div>
+  
+      <div class="mb-4">
+        <label for="cel" class="block text-lg font-semibold text-brown-600">Teléfono:</label>
+        <input id="cel" type="text" formControlName="tel" class="w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+      </div>
+  
+      <div class="mb-4">
+        <label for="cantidad" class="block text-lg font-semibold text-brown-600">Número de pizzas:</label>
+        <input id="cantidad" type="number" formControlName="cantidad" class="w-24 border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+      </div>
+  
+      <div class="mb-4">
+        <p class="font-semibold text-lg text-brown-600">Tamaño de pizza</p>
+        <br>
+        <div>
+          <label><input type="radio" name="tamanio" formControlName="tamanio" value="Chica" class="form-radio text-green-600"> Fiera Pequeña (CH): $40</label>
+        </div>
+        <div>
+          <label><input type="radio" name="tamanio" formControlName="tamanio" value="Mediana" class="form-radio text-green-600"> Fiera Mediana (M): $80</label>
+        </div>
+        <div>
+          <label><input type="radio" name="tamanio" formControlName="tamanio" value="Grande" class="form-radio text-green-600"> Fiera Imparable (G): $120</label>
+        </div>
+      </div>
+      
+      <div class="mb-4">
+        <p class="font-semibold text-lg text-brown-600">Ingredientes</p>
+        <h2>$10 extra por cada ingrediente</h2>
+        <br>
+        <div>
+          <label>
+            <input type="checkbox" name="ingrediente1" formControlName="ingrediente1" value="Jamon" class="form-checkbox text-green-600 focus:ring-green-500"> Jamón de León
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="ingrediente2" formControlName="ingrediente2" value="Pina" class="form-checkbox text-green-600 focus:ring-green-500"> Piña Fiera
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="ingrediente3" formControlName="ingrediente3" value="Champiñones" class="form-checkbox text-green-600 focus:ring-green-500"> Champiñones Esmeralda 
+          </label>
+        </div>
+      </div>
+
+  
+  
+      <div class="flex justify-end mt-6 lg:col-span-2">
+        <button type="submit" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-950 transition-colors">Agregar</button>
+      </div>
+
+    </form>
+
+  </div>
+  
